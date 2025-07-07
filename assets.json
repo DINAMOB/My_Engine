@@ -1,0 +1,10 @@
+{
+  "textures": {
+    "menu": "assets/texture/veille_ecran_qui_bug.png"
+  },
+  "fonts": {
+    "winXP": "assets/font/Windows_Regular.ttf"
+  },
+  "sounds": {
+  }
+}
