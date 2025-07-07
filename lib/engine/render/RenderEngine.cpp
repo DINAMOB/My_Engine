@@ -28,28 +28,6 @@ void RenderEngine::dtUpdate(void)
     this->dt = std::min(this->dt, 0.1f);
 }
 
-//         // Matrice de projection
-//         glMatrixMode(GL_PROJECTION);
-//         glLoadIdentity();
-//         gluPerspective(90.f, 800.f / 600.f, 1.f, 100.f);
-
-//         // Matrice de modèle
-//         glMatrixMode(GL_MODELVIEW);
-//         glLoadIdentity();
-//         glTranslatef(0.f, 0.f, -5.f);
-
-//         // Animation simple (rotation)
-//         static float angle = 0.0f;
-//         angle += 90.f * deltaTime; // 90° par seconde
-//         glRotatef(angle, 0.f, 1.f, 0.f);
-
-//         // Dessin cube
-//         glBegin(GL_QUADS);
-//         glColor3f(1.f, 0.f, 0.f); glVertex3f(-1.f, -1.f, -1.f);
-//         glColor3f(0.f, 1.f, 0.f); glVertex3f(-1.f, 1.f, -1.f);
-//         glColor3f(0.f, 0.f, 1.f); glVertex3f(1.f, 1.f, -1.f);
-//         glColor3f(1.f, 1.f, 0.f); glVertex3f(1.f, -1.f, -1.f);
-//         glEnd()
 void RenderEngine::run(SceneManager& manager)
 {
     float angle = 0.0f;
@@ -58,12 +36,9 @@ void RenderEngine::run(SceneManager& manager)
         this->event.manager(this->window);
         this->dtUpdate();
         this->clear(sf::Color::Black);
-                // Matrice de projection
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         gluPerspective(90.f, 800.f / 600.f, 1.f, 100.f);
-
-        // Matrice de modèle
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         if (event.keyboard.is_active(KEY_Q))
@@ -76,8 +51,6 @@ void RenderEngine::run(SceneManager& manager)
             distance += -1.0f * this->dt;
         glTranslatef(0.f, 0.f, distance);
         glRotatef(angle, 0.f, 1.f, 0.f);
-
-        // Dessin cube
         glBegin(GL_QUADS);
         glColor3f(1.f, 0.f, 0.f); glVertex3f(-1.f, -1.f, -1.f);
         glColor3f(0.f, 1.f, 0.f); glVertex3f(-1.f, 1.f, -1.f);
